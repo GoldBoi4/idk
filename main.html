@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Full-screen Video Background */
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .video-container video {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+        }
+
+        /* Floating & Smooth Entry Form */
+        .container {
+            position: absolute;
+            top: 60%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 350px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            color: white;
+            opacity: 0; /* Initially hidden */
+            visibility: hidden;
+            transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        /* Inputs & Button Styling */
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+
+        button {
+            background: orange;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #e68900;
+            transform: scale(1.05);
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 450px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .success-message p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .success-message .quote {
+            font-size: 14px;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        .success-message .regards {
+            text-align: left;
+            font-size: 12px;
+            margin-top: 10px;
+            opacity: 0.7;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -55%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        /* Floating Animation */
+        @keyframes floating {
+            0% { transform: translate(-50%, -50%) translateY(0px); }
+            50% { transform: translate(-50%, -50%) translateY(-10px); }
+            100% { transform: translate(-50%, -50%) translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Video -->
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="https://raw.githubusercontent.com/GoldBoi4/Website/main/BIG%20DAWGS%20INTRO%20WITH%20CROWN%20IN%20LAST.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Smooth Floating & Entry Form -->
+    <div class="container" id="formContainer">
+        <h2>Register Here</h2>
+        <form id="form">
+            <input type="text" name="Name" placeholder="Name" required>
+            <input type="number" name="Age" placeholder="Age" required>
+            <input type="text" name="City" placeholder="City" required>
+            <input type="tel" name="Phone Number" placeholder="Phone Number" required>
+            <input type="email" name="Email Address" placeholder="Email Address" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Success Message Box -->
+    <div class="success-message" id="successMessage">
+        <p>🎉 Welcome to our family! 🎉</p>
+        <p class="quote">"Learning never exhausts the mind. Keep growing, keep evolving!"</p>
+        <p class="regards">Regards, <br> Karma Kunnal Bhardwaj</p>
+    </div>
+
+    <script>
+        // Show form after 5 seconds with smooth transition
+        setTimeout(() => {
+            const formContainer = document.getElementById("formContainer");
+            formContainer.style.opacity = "1";
+            formContainer.style.visibility = "visible";
+            formContainer.style.transform = "translate(-50%, -50%)";
+        }, 5000);
+
+        document.getElementById("form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+            const url = "https://script.google.com/macros/s/AKfycbyfE7EfJwHp9ETcErOvNFrU1_xKXbfP6c16qqT2PQzKKKG-L-n9nGlMGaIcMZGC8UvSGg/exec";
+
+            fetch(url, {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("formContainer").style.display = "none";
+                document.getElementById("successMessage").style.display = "block";
+            })
+            .catch(error => alert("Error: " + error));
+        });
+    </script>
+</body>
+</html>
