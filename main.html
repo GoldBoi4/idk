@@ -181,6 +181,11 @@
             .then(data => {
                 document.getElementById("formContainer").style.display = "none";
                 document.getElementById("successMessage").style.display = "block";
+
+                // Wait for 5 seconds and then redirect
+                setTimeout(() => {
+                    window.location.href = "https://bigdawgspay2.netlify.app/"; // Replace with your target URL
+                }, 5000);
             })
             .catch(error => alert("Error: " + error));
         });
