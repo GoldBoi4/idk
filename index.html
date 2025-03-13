@@ -12,7 +12,6 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        /* Full-screen Video Background */
         .video-container {
             position: fixed;
             top: 0;
@@ -29,7 +28,6 @@
             object-fit: cover;
         }
 
-        /* Floating & Smooth Entry Form */
         .container {
             position: absolute;
             top: 60%;
@@ -44,13 +42,12 @@
             box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
             text-align: center;
             color: white;
-            opacity: 0; /* Initially hidden */
+            opacity: 0;
             visibility: hidden;
             transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
             animation: floating 3s ease-in-out infinite;
         }
 
-        /* Inputs & Button Styling */
         input, button {
             width: 100%;
             padding: 10px;
@@ -73,7 +70,6 @@
             transform: scale(1.05);
         }
 
-        /* Success Message */
         .success-message {
             display: none;
             position: absolute;
@@ -91,25 +87,15 @@
             animation: fadeIn 1.5s ease-in-out;
         }
 
-        .success-message p {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .success-message .quote {
-            font-size: 14px;
-            font-style: italic;
-            opacity: 0.8;
-        }
-
-        .success-message .regards {
-            text-align: left;
+        .regards {
             font-size: 12px;
-            margin-top: 10px;
-            opacity: 0.7;
+            position: absolute;
+            bottom: 10px;
+            left: 15px;
+            text-align: left;
+            color: #ccc;
         }
 
-        /* Fade-in Animation */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -121,7 +107,6 @@
             }
         }
 
-        /* Floating Animation */
         @keyframes floating {
             0% { transform: translate(-50%, -50%) translateY(0px); }
             50% { transform: translate(-50%, -50%) translateY(-10px); }
@@ -130,15 +115,12 @@
     </style>
 </head>
 <body>
-
-    <!-- Background Video -->
     <div class="video-container">
         <video autoplay muted loop>
             <source src="https://raw.githubusercontent.com/GoldBoi4/Website/main/BIG%20DAWGS%20INTRO%20WITH%20CROWN%20IN%20LAST.mp4" type="video/mp4">
         </video>
     </div>
 
-    <!-- Smooth Floating & Entry Form -->
     <div class="container" id="formContainer">
         <h2>Register Here</h2>
         <form id="form">
@@ -148,18 +130,16 @@
             <input type="tel" name="Phone Number" placeholder="Phone Number" required>
             <input type="email" name="Email Address" placeholder="Email Address" required>
             <button type="submit">Submit</button>
-        </form>
+        </form>        
     </div>
 
-    <!-- Success Message Box -->
     <div class="success-message" id="successMessage">
-        <p>🎉 Welcome to our family! 🎉</p>
+        <p>Welcome to our family!</p>
         <p class="quote">"Learning never exhausts the mind. Keep growing, keep evolving!"</p>
         <p class="regards">Regards, <br> Karma Kunnal Bhardwaj</p>
     </div>
 
     <script>
-        // Show form after 5 seconds with smooth transition
         setTimeout(() => {
             const formContainer = document.getElementById("formContainer");
             formContainer.style.opacity = "1";
@@ -171,7 +151,7 @@
             event.preventDefault();
 
             const formData = new FormData(event.target);
-            const url = "https://script.google.com/macros/s/AKfycbyfE7EfJwHp9ETcErOvNFrU1_xKXbfP6c16qqT2PQzKKKG-L-n9nGlMGaIcMZGC8UvSGg/exec";
+            const url = "https://script.google.com/macros/s/AKfycbwVXyb1b9Qx4OkKYTCrEnpnkJswu5-rlr9yDo0r2gTsr_XiKIOWIJO7BrQsg2wZdJxniw/exec";
 
             fetch(url, {
                 method: "POST",
@@ -181,10 +161,10 @@
             .then(data => {
                 document.getElementById("formContainer").style.display = "none";
                 document.getElementById("successMessage").style.display = "block";
-
-                // Wait for 5 seconds and then redirect
+                
+                // Redirect after 5 seconds
                 setTimeout(() => {
-                    window.location.href = "https://bigdawgspay2.netlify.app/"; // Replace with your target URL
+                    window.location.href = "https://bigdawgspay2.netlify.app/"; // Change to your desired URL
                 }, 5000);
             })
             .catch(error => alert("Error: " + error));
