@@ -12,27 +12,16 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        .video-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
-        }
-
-        .video-container video {
-            width: 100vw;
+        body {
+            background: url('https://github.com/GoldBoi4/Big-Dawgs/blob/main/IMG_4677.JPG?raw=true') no-repeat center center;
+            background-size: cover;
             height: 100vh;
-            object-fit: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .container {
-            position: absolute;
-            top: 60%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             width: 90%;
             max-width: 350px;
             padding: 20px;
@@ -42,10 +31,6 @@
             box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
             text-align: center;
             color: white;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
-            animation: floating 3s ease-in-out infinite;
         }
 
         input, button {
@@ -106,21 +91,9 @@
                 transform: translate(-50%, -50%);
             }
         }
-
-        @keyframes floating {
-            0% { transform: translate(-50%, -50%) translateY(0px); }
-            50% { transform: translate(-50%, -50%) translateY(-10px); }
-            100% { transform: translate(-50%, -50%) translateY(0px); }
-        }
     </style>
 </head>
 <body>
-    <div class="video-container">
-        <video autoplay muted loop>
-            <source src="https://raw.githubusercontent.com/GoldBoi4/Website/main/BIG%20DAWGS%20INTRO%20WITH%20CROWN%20IN%20LAST.mp4" type="video/mp4">
-        </video>
-    </div>
-
     <div class="container" id="formContainer">
         <h2>Register Here</h2>
         <form id="form">
@@ -140,13 +113,6 @@
     </div>
 
     <script>
-        setTimeout(() => {
-            const formContainer = document.getElementById("formContainer");
-            formContainer.style.opacity = "1";
-            formContainer.style.visibility = "visible";
-            formContainer.style.transform = "translate(-50%, -50%)";
-        }, 5000);
-
         document.getElementById("form").addEventListener("submit", function(event) {
             event.preventDefault();
 
