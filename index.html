@@ -1,140 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register Form</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sold Out</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #1a1a1a, #000000);
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
 
-        body {
-            background: url('https://github.com/GoldBoi4/Big-Dawgs/blob/main/IMG_4677.JPG?raw=true') no-repeat center center;
-            background-size: cover;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    h1 {
+      font-size: 3.5rem;
+      background: linear-gradient(to right, #f87171, #facc15);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(-50px);
+      animation: fadeInUp 1s forwards;
+    }
 
-        .container {
-            width: 90%;
-            max-width: 350px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            color: white;
-        }
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      color: #d1d5db;
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeIn 1s 0.5s forwards;
+    }
 
-        input, button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: none;
-            outline: none;
-        }
+    .btn {
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(to right, #3b82f6, #9333ea);
+      color: white;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: background 0.3s ease;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeInUp 1s 1s forwards;
+    }
 
-        button {
-            background: orange;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+    .btn:hover {
+      background: linear-gradient(to right, #9333ea, #3b82f6);
+    }
 
-        button:hover {
-            background: #e68900;
-            transform: scale(1.05);
-        }
+    footer {
+      position: absolute;
+      bottom: 30px;
+      font-size: 0.9rem;
+      color: #9ca3af;
+      opacity: 0;
+      animation: fadeIn 1s 1.5s forwards;
+    }
 
-        .success-message {
-            display: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            max-width: 450px;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            text-align: center;
-            border-radius: 12px;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
-            animation: fadeIn 1.5s ease-in-out;
-        }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
 
-        .regards {
-            font-size: 12px;
-            position: absolute;
-            bottom: 10px;
-            left: 15px;
-            text-align: left;
-            color: #ccc;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translate(-50%, -55%);
-            }
-            to {
-                opacity: 1;
-                transform: translate(-50%, -50%);
-            }
-        }
-    </style>
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container" id="formContainer">
-        <h2>Register Here</h2>
-        <form id="form">
-            <input type="text" name="Name" placeholder="Name" required>
-            <input type="number" name="Age" placeholder="Age" required>
-            <input type="text" name="City" placeholder="City" required>
-            <input type="tel" name="Phone Number" placeholder="Phone Number" required>
-            <input type="email" name="Email Address" placeholder="Email Address" required>
-            <button type="submit">Submit</button>
-        </form>        
-    </div>
-
-    <div class="success-message" id="successMessage">
-        <p>Welcome to our family!</p>
-        <p class="quote">"Learning never exhausts the mind. Keep growing, keep evolving!"</p>
-        <p class="regards">Regards, <br> Karma Kunnal Bhardwaj</p>
-    </div>
-
-    <script>
-        document.getElementById("form").addEventListener("submit", function(event) {
-            event.preventDefault();
-
-            const formData = new FormData(event.target);
-            const url = "https://script.google.com/macros/s/AKfycbwVXyb1b9Qx4OkKYTCrEnpnkJswu5-rlr9yDo0r2gTsr_XiKIOWIJO7BrQsg2wZdJxniw/exec";
-
-            fetch(url, {
-                method: "POST",
-                body: formData
-            })
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("formContainer").style.display = "none";
-                document.getElementById("successMessage").style.display = "block";
-                
-                // Redirect after 5 seconds
-                setTimeout(() => {
-                    window.location.href = "https://bigdawgspay2.netlify.app/"; // Change to your desired URL
-                }, 5000);
-            })
-            .catch(error => alert("Error: " + error));
-        });
-    </script>
+  <h1>We Are Officially Sold Out!</h1>
+  <p>Thank you for the overwhelming support and love. It means the world to us. If you missed your chance, you can still be a part of the experience with a Viewer Pass.</p>
+  <a class="btn" href="https://viewerpass.netlify.app/" target="_blank">Purchase Viewer Pass</a>
+  <footer>With gratitude — Karma Kunnal Bhardwaj ❤️</footer>
 </body>
 </html>
