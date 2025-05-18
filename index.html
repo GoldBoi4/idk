@@ -4,68 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Karma Dance Studio</title>
-  
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
   <style>
-    * {
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      height: 100%;
       background: #000;
       color: white;
       font-family: 'Poppins', sans-serif;
+      text-align: center;
     }
 
     #logo {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(2.5);
-      opacity: 0;
-      transition: all 2s ease-in-out;
-      width: 180px;
-      z-index: 10;
-    }
-
-    #welcome {
-      position: absolute;
-      top: 55%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 3rem;
-      opacity: 0;
-      background: linear-gradient(to right, #f87171, #facc15);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      z-index: 9;
-      transition: opacity 1.5s ease-in-out;
-      text-align: center;
+      width: 150px;
+      margin: 30px auto;
+      display: block;
     }
 
     h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      background: linear-gradient(to right, #f87171, #facc15);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: fadeIn 1s ease-in-out 11s forwards;
-      opacity: 0;
+      font-size: 2.5rem;
+      margin: 20px 0;
+      color: #facc15;
     }
 
     #message {
-      font-size: 1.3rem;
-      max-width: 900px;
+      font-size: 1.2rem;
       color: #d1d5db;
-      opacity: 0;
-      animation: fadeIn 1s ease-in-out 12s forwards;
-      text-align: center;
-      margin-bottom: 40px;
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 20px;
     }
 
     .buttons {
@@ -73,69 +40,36 @@
       flex-wrap: wrap;
       gap: 20px;
       justify-content: center;
-      opacity: 0;
-      animation: fadeIn 1s ease-in-out 13s forwards;
-      margin-bottom: 40px;
+      margin: 30px 0;
     }
 
     .btn {
-      padding: 14px 35px;
+      padding: 12px 25px;
       font-size: 1rem;
       border: none;
       border-radius: 30px;
-      background: linear-gradient(to right, #3b82f6, #9333ea);
+      background: #4f46e5;
       color: white;
       cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
       text-decoration: none;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
-    }
-
-    .btn:hover {
-      background: linear-gradient(to right, #9333ea, #3b82f6);
-      transform: scale(1.05);
     }
 
     .socials {
       display: flex;
       justify-content: center;
       gap: 20px;
-      margin-bottom: 30px;
-      opacity: 0;
-      animation: fadeIn 1s ease-in-out 14s forwards;
+      margin-bottom: 20px;
     }
 
     .socials img {
-      width: 35px;
-      height: 35px;
-      filter: brightness(0) invert(1);
-      transition: transform 0.3s ease;
-    }
-
-    .socials img:hover {
-      transform: scale(1.2);
+      width: 30px;
+      height: 30px;
     }
 
     footer {
-      text-align: center;
       font-size: 0.9rem;
       color: #9ca3af;
-      opacity: 0;
-      animation: fadeIn 1s ease-in-out 14.5s forwards;
-    }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
-    }
-
-    main {
-      margin-top: 140px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 0 20px;
+      margin-bottom: 20px;
     }
 
     @media (max-width: 600px) {
@@ -143,86 +77,42 @@
         font-size: 2rem;
       }
 
-      #welcome {
-        font-size: 2rem;
-      }
-
       #message {
         font-size: 1rem;
-        padding: 0 10px;
       }
 
       .btn {
         width: 100%;
-        text-align: center;
-      }
-
-      .socials img {
-        width: 30px;
-        height: 30px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Logo -->
   <img id="logo" src="https://raw.githubusercontent.com/GoldBoi4/idk/main/karmalogo-02.PNG" alt="Karma Logo" />
 
-  <!-- Welcome Text -->
-  <div id="welcome">Welcome to The Karma Dance Studio</div>
+  <h1>The Karma Dance Studio</h1>
 
-  <!-- Main Content -->
-  <main>
-    <h1>The Karma Dance Studio</h1>
+  <div id="message">
+    Chandigarh’s Only Dance Studio Offering a Complete Journey — From Beginner to Pro!<br />
+    Join us for intensive training programs, exclusive monthly workshops with top celebrities, and Mega Dance Camps featuring the finest dance talent from across India. <br><br>
+    <strong>Elevate your passion. Dance with the best!</strong>
+  </div>
 
-    <div id="message">
-      Chandigarh’s Only Dance Studio Offering a Complete Journey — From Beginner to Pro!<br />
-      Join us for intensive training programs, exclusive monthly workshops with top celebrities, and Mega Dance Camps featuring the finest dance talent from across India. <br><br>
-      <strong>Elevate your passion. Dance with the best!</strong>
-    </div>
+  <div class="buttons">
+    <a class="btn" href="https://danceworkshop.framer.website/Join">Workshops</a>
+    <a class="btn" href="#">Merchandise</a>
+    <a class="btn" href="#">Dance Classes</a>
+    <a class="btn" href="https://maingallerytkds.netlify.app/">Gallery</a>
+  </div>
 
-    <div class="buttons">
-      <a class="btn" href="https://danceworkshop.framer.website/Join">Workshops</a>
-      <a class="btn" href="#">Merchandise</a>
-      <a class="btn" href="#">Dance Classes</a>
-      <a class="btn" href="https://maingallerytkds.netlify.app/">Gallery</a>
-    </div>
+  <div class="socials">
+    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png" alt="Instagram"></a>
+    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384028.png" alt="Facebook"></a>
+    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384025.png" alt="YouTube"></a>
+  </div>
 
-    <div class="socials">
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png" alt="Instagram"></a>
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384028.png" alt="Facebook"></a>
-      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384025.png" alt="YouTube"></a>
-    </div>
-
-    <footer>With gratitude — Karma Kunnal Bhardwaj ❤️</footer>
-  </main>
-
-  <!-- Script -->
-  <script>
-    window.onload = () => {
-      const logo = document.getElementById('logo');
-      const welcome = document.getElementById('welcome');
-
-      setTimeout(() => {
-        logo.style.opacity = '1';
-      }, 300);
-
-      setTimeout(() => {
-        logo.style.transform = 'translate(0%, 0%) scale(0.6)';
-        logo.style.top = '30px';
-        logo.style.left = '30px';
-      }, 5800);
-
-      setTimeout(() => {
-        welcome.style.opacity = '1';
-      }, 7200);
-
-      setTimeout(() => {
-        welcome.style.opacity = '0';
-      }, 10200);
-    };
-  </script>
+  <footer>With gratitude — Karma Kunnal Bhardwaj ❤️</footer>
 
 </body>
 </html>
